@@ -5,6 +5,7 @@
   "dependencies": {
     "antd": "^3.8.2",
     "bootstrap-4-grid": "^2.4.1",
+    "firebase": "^5.4.0",
     "formsy-react": "^1.1.4",
     "moment": "^2.22.2",
     "react": "^16.4.2",

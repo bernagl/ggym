@@ -5,12 +5,13 @@ const { Item } = Form
 
 class MyInput extends React.Component {
   static defaultProps = {
-    defaultValue: '',
+    defaultValue: null,
     defaultValueNumber: 1,
     feedBack: true,
-    type: 'text',
+    label: '',
     max: 100,
-    min: 0
+    min: 0,
+    type: 'text'
   }
 
   state = { error: false, blurred: false }
@@ -42,7 +43,7 @@ class MyInput extends React.Component {
       min,
       name,
       placeholder,
-      required,
+      // required,
       type
     } = this.props
     const { blurred } = this.state
@@ -50,10 +51,14 @@ class MyInput extends React.Component {
       <div>
         <Item
           layout="vertical"
-          label={`${required ? '*' : ''} ${label}`}
-          validateStatus={errorMessage ? 'error' : value ? 'success' : null}
+          // label={`${label && required ? '*' : ''} ${label}`}
+          label={label ? label : false}
+          validateStatus={
+            blurred ? (errorMessage ? 'error' : value ? 'success' : null) : null
+          }
           help={blurred ? (errorMessage ? errorMessage : null) : null}
           hasFeedback={feedBack && blurred}
+          // className={`${label || 'mb-1'}`}
         >
           {type === 'number' ? (
             <InputNumber
