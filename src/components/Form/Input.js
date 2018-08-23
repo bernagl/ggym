@@ -71,6 +71,7 @@ class MyInput extends React.Component {
               type={type}
               onChange={this.changeValue}
               onBlur={this.onBlur}
+              className="full-width"
             />
           ) : (
             <Input

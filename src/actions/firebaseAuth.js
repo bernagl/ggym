@@ -17,18 +17,15 @@ export const login = async ({ email, password }) => {
   }
 }
 
-export const register = async (correo, contrasena, nombre) => {
+export const register = async ({ email, password, name, phone }) => {
   try {
-    const { user } = await auth.createUserWithEmailAndPassword(
-      correo,
-      contrasena
-    )
+    const { user } = await auth.createUserWithEmailAndPassword(email, password)
     return db
       .ref(`admin/${user.uid}`)
-      .set({ correo, nombre, admin: true })
-      .then(result => 202)
+      .set({ email, name, phone, admin: true })
+      .then(() => returnObject(202, 'Gracias por registrarte'))
   } catch (e) {
-    return 500
+    return returnObject(404, 'Ocurrió un error al registrarte')
   }
 }
 
