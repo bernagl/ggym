@@ -24,7 +24,8 @@ class Form extends Component {
 
   submit = async model => {
     this.setState({ loading: true })
-    await this.props.submit(model)
+    const r = await this.props.submit(model)
+    console.log(r)
     this.setState({ loading: false })
   }
 

@@ -14,7 +14,6 @@ class Login extends Component {
   render() {
     return (
       <AuthWrapper bordered type="login" recover>
-        {/* <div className=""> */}
         <Form
           submitText="Iniciar sesión"
           submit={this.submit}
@@ -39,7 +38,6 @@ class Login extends Component {
             required
           />
         </Form>
-        {/* </div> */}
       </AuthWrapper>
     )
   }

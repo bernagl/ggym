@@ -32,6 +32,7 @@ export const register = async ({ email, password, name, phone }) => {
 export const authState = async context => {
   auth.onAuthStateChanged(user => {
     if (user) {
+      // if (user.emailVerified) {
       return db
         .ref(`admin/${user.uid}`)
         .once('value')
@@ -47,6 +48,10 @@ export const authState = async context => {
             return 404
           }
         })
+      // } else {
+      //   console.log('not verified')
+      //   return returnObject(204, 'Por favor confirma tu correo electrónico')
+      // }
     } else {
       context.setState({ auth: null, loading: false })
     }
