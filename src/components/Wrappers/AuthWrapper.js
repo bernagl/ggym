@@ -16,14 +16,14 @@ export default ({ children, type, recover }) => (
       <div>
         <Link to="/register">Registrarme</Link>
       </div>
-    ) : type === 'register' ? (
+    ) : type === 'register' || type === 'recover' ? (
       <div>
         <Link to="/login">Iniciar sesión</Link>
       </div>
     ) : null}
     {recover && (
       <div>
-        <Link to="recover">Recuperar contraseña</Link>
+        <Link to="/recover">Olvidaste tu contraseña?</Link>
       </div>
     )}
   </CenterWrapper>

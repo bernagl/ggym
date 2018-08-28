@@ -65,11 +65,27 @@ export const logout = () => {
     .catch(e => console.log(e))
 }
 
-export const recover = correo => {
+export const recover = ({ email }) => {
   return auth
-    .sendPasswordResetEmail(correo)
-    .then(r => r)
-    .catch(e => e)
+    .sendPasswordResetEmail(email)
+    .then(r =>
+      returnObject(202, 'Se han enviado instrucciones a tu correo electrónico')
+    )
+    .catch(({ code }) => {
+      let message = ''
+      switch (code) {
+        case 'auth/invalid-email':
+          message = 'El correo no es válido'
+          break
+        case 'auth/user-not-found':
+          message = 'El correo no esta asociado a ninguna cuenta'
+          break
+        default:
+          message = 'Ocurrió un error, por favor vuelve a intentarlo'
+          break
+      }
+      return returnObject(404, message)
+    })
 }
 
 function returnObject(status, message, descripcion) {
