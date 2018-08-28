@@ -43,16 +43,15 @@ class Wrapper extends React.Component {
   render() {
     const {
       children,
-      feedBack,
-      getErrorMessage,
+      // feedBack,
+      // getErrorMessage,
       isValid: validate,
       label,
       validationError
     } = this.props
     const { blurred } = this.state
-    const errorMessage = getErrorMessage()
+    // const errorMessage = getErrorMessage()
     const isValid = validate()
-    console.log(this.props.validationError, isValid, errorMessage)
     return (
       <Item
         layout="vertical"
@@ -62,7 +61,8 @@ class Wrapper extends React.Component {
         // hasFeedback={feedBack && blurred}
       >
         {children({ ...this.setRenderProps() })}
-        {!isValid && <span className="input-has-error">{validationError}</span>}
+        {!isValid &&
+          blurred && <span className="input-has-error">{validationError}</span>}
       </Item>
     )
   }

@@ -3,6 +3,7 @@ import Form from '../components/Form/Form'
 import Input from '../components/F/Input'
 import InputNumber from '../components/F/Step'
 import Datepicker from '../components/F/Datepicker'
+import Radio from '../components/F/Radio'
 import { Select, Option } from '../components/F/Select'
 
 class Recover extends Component {
@@ -37,6 +38,7 @@ class Recover extends Component {
           // defaultValue={7}
           // max={10}
         />
+        <Radio name="checki" label="Este es un checkbox"/>
         <Select
           name="selecthoc"
           label="selecthoc"
