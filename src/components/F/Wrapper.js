@@ -51,12 +51,15 @@ class Wrapper extends React.Component {
     } = this.props
     const { blurred } = this.state
     // const errorMessage = getErrorMessage()
+    console.log(blurred)
     const isValid = validate()
     return (
       <Item
         layout="vertical"
         label={label}
-        validateStatus={isValid ? 'success' : !isValid ? 'error' : null}
+        validateStatus={
+          blurred ? (isValid ? 'success' : !isValid ? 'error' : null) : null
+        }
         // help={blurred ? (!isValid ? errorMessage : null) : null}
         // hasFeedback={feedBack && blurred}
       >

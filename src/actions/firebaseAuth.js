@@ -12,8 +12,12 @@ export const login = async ({ email, password }) => {
           ? returnObject(202, 'Bienvenido')
           : returnObject(404, 'Error al iniciar sesión')
       })
-  } catch (e) {
-    return returnObject(404, 'Error al iniciar sesión')
+  } catch ({ code }) {
+    let message = ''
+    if (code === 'auth/user-not-found')
+      message = 'El correo no existe en nuestra base de datos'
+    else message = 'Usuario y/o contraseña incorrectos'
+    return returnObject(404, message)
   }
 }
 
@@ -24,8 +28,16 @@ export const register = async ({ email, password, name, phone }) => {
       .ref(`admin/${user.uid}`)
       .set({ email, name, phone, admin: true })
       .then(() => returnObject(202, 'Gracias por registrarte'))
-  } catch (e) {
-    return returnObject(404, 'Ocurrió un error al registrarte')
+  } catch ({ code }) {
+    let message = ''
+    if (code === 'auth/account-exists-with-different-credential') {
+      message =
+        'El correo ya se encuentra registrado por otro método de inicio de sesión'
+    } else {
+      message =
+        'El correo ya se encuentra registrado por otro método de inicio de sesión'
+    }
+    return returnObject(404, message)
   }
 }
 
