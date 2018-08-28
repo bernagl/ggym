@@ -37,6 +37,25 @@
   content: '' !important;
 }
 
+.ant-row.ant-form-item {
+  margin-bottom: 20px !important;
+}
+
+.ant-form-item-control {
+  line-height: 0% !important;
+  position: unset;
+  zoom: 1;
+}
+
+.input-has-error {
+  position: relative;
+  top: 10px;
+  color: red;
+  opacity: 1;
+  animation: fadein;
+  animation-duration: 1s;
+}
+
 /* AuthWrapper */
 
 #auth-wrapper .logo {

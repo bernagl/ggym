@@ -1,13 +1,15 @@
 import React from 'react'
-import Parent from './InputHOC'
+import Parent from './Wrapper'
 import { Input } from 'antd'
+import PropTypes from 'prop-types'
 
-export default props => {
+export const Field = props => {
   return (
     <Parent {...props}>
       {({ onChange, onBlur, value }) => {
         return (
           <Input
+            placeholder={props.placeholder}
             name={props.name}
             value={value}
             id={props.name}
@@ -19,4 +21,19 @@ export default props => {
       }}
     </Parent>
   )
+}
+
+export default Field
+
+Field.defaultProps = {
+  label: '',
+  placeholder: '',
+  type: 'text'
+}
+
+Field.propTypes = {
+  label: PropTypes.string,
+  name: PropTypes.string.isRequired,
+  placeholder: PropTypes.string,
+  type: PropTypes.string
 }

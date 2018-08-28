@@ -1,12 +1,12 @@
 import React from 'react'
-import Parent from './InputHOC'
+import Parent from './Wrapper'
 import { InputNumber } from 'antd'
 import PropTypes from 'prop-types'
 
 export const Field = ({ required, validationError, ...rest }) => {
   return (
     <Parent
-      required={required}
+      // required={required}
       validations={{ isNumeric: true }}
       validationError={validationError}
       {...rest}
@@ -27,7 +27,7 @@ export const Field = ({ required, validationError, ...rest }) => {
               onChange(value ? value : rest.min)
               onBlur()
             }}
-            // required
+            required
           />
         )
       }}
@@ -43,7 +43,7 @@ Field.defaultProps = {
   min: 1,
   max: 100,
   step: 1,
-  value: 1
+  defaultValue: 1
 }
 
 Field.propTypes = {
@@ -51,5 +51,7 @@ Field.propTypes = {
   min: PropTypes.number,
   name: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
+  type: PropTypes.string,
   step: PropTypes.number
 }
+

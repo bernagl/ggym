@@ -3,17 +3,17 @@ import { withFormsy } from 'formsy-react'
 import { Form } from 'antd'
 const { Item } = Form
 
-class MyInput extends React.Component {
-  static defaultProps = {
-    defaultValue: null,
-    defaultValueNumber: 1,
-    feedBack: true,
-    label: '',
-    max: 100,
-    min: 0,
-    type: 'text',
-    validationError: 'El campo no es válido'
-  }
+class Wrapper extends React.Component {
+  // static defaultProps = {
+  //   defaultValue: null,
+  //   defaultValueNumber: 1,
+  //   feedBack: true,
+  //   label: '',
+  //   max: 100,
+  //   min: 0,
+  //   type: 'text',
+  //   validationError: 'El campo no es válido'
+  // }
 
   state = { error: false, blurred: false, value: null }
 
@@ -46,23 +46,26 @@ class MyInput extends React.Component {
       feedBack,
       getErrorMessage,
       isValid: validate,
-      label
+      label,
+      validationError
     } = this.props
     const { blurred } = this.state
     const errorMessage = getErrorMessage()
     const isValid = validate()
+    console.log(this.props.validationError, isValid, errorMessage)
     return (
       <Item
         layout="vertical"
         label={label}
         validateStatus={isValid ? 'success' : !isValid ? 'error' : null}
-        help={blurred ? (!isValid ? errorMessage : null) : null}
-        hasFeedback={feedBack && blurred}
+        // help={blurred ? (!isValid ? errorMessage : null) : null}
+        // hasFeedback={feedBack && blurred}
       >
         {children({ ...this.setRenderProps() })}
+        {!isValid && <span className="input-has-error">{validationError}</span>}
       </Item>
     )
   }
 }
 
-export default withFormsy(MyInput)
+export default withFormsy(Wrapper)
