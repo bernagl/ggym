@@ -14,11 +14,11 @@ class App extends Component {
   render() {
     const { auth, loading } = this.state
     return (
-      <div className="container">
+      // <div className="container">
         <LoadingWrapper loading={loading}>
           <Router auth={auth} />
         </LoadingWrapper>
-      </div>
+      // </div>
     )
   }
 }

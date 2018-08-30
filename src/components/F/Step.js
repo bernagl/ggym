@@ -1,39 +1,36 @@
 import React from 'react'
 import Parent from './Wrapper'
-import { InputNumber } from 'antd'
+import { InputNumber } from '../../antd'
 import PropTypes from 'prop-types'
 
-export const Field = ({ required, validationError, ...rest }) => {
-  return (
-    <Parent
-      // required={required}
-      validations={{ isNumeric: true }}
-      validationError={validationError}
-      {...rest}
-    >
-      {({ onChange, onBlur, value }) => {
-        return (
-          <InputNumber
-            name={rest.name}
-            value={value}
-            min={rest.min}
-            max={rest.max}
-            step={rest.step ? rest.step : 1}
-            formatter={rest.formatter}
-            defaultValue={rest.defaultValue}
-            id={rest.name}
-            onChange={value => onChange(value)}
-            onBlur={({ target: { value } }) => {
-              onChange(value ? value : rest.min)
-              onBlur()
-            }}
-            required
-          />
-        )
-      }}
-    </Parent>
-  )
-}
+export const Field = ({ required, validationError, ...rest }) => (
+  <Parent
+    validations={{ isNumeric: true }}
+    validationError={validationError}
+    {...rest}
+  >
+    {({ onChange, onBlur, value }) => {
+      return (
+        <InputNumber
+          name={rest.name}
+          value={value}
+          min={rest.min}
+          max={rest.max}
+          step={rest.step ? rest.step : 1}
+          formatter={rest.formatter}
+          defaultValue={rest.defaultValue}
+          id={rest.name}
+          onChange={value => onChange(value)}
+          onBlur={({ target: { value } }) => {
+            onChange(value ? value : rest.min)
+            onBlur()
+          }}
+          required
+        />
+      )
+    }}
+  </Parent>
+)
 
 export default Field
 
@@ -54,4 +51,3 @@ Field.propTypes = {
   type: PropTypes.string,
   step: PropTypes.number
 }
-

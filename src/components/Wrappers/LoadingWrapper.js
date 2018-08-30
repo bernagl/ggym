@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import { Spin } from 'antd'
+import { Spin } from '../../antd'
 import CenterWrapper from './CenterWrapper'
 
 export default ({ children, loading }) => {

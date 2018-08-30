@@ -1,20 +1,9 @@
 import React from 'react'
 import { withFormsy } from 'formsy-react'
-import { Form } from 'antd'
+import { Form } from '../../antd'
 const { Item } = Form
 
 class Wrapper extends React.Component {
-  // static defaultProps = {
-  //   defaultValue: null,
-  //   defaultValueNumber: 1,
-  //   feedBack: true,
-  //   label: '',
-  //   max: 100,
-  //   min: 0,
-  //   type: 'text',
-  //   validationError: 'El campo no es válido'
-  // }
-
   state = { error: false, blurred: false, value: null }
 
   changeValue = value => {
@@ -51,7 +40,6 @@ class Wrapper extends React.Component {
     } = this.props
     const { blurred } = this.state
     // const errorMessage = getErrorMessage()
-    console.log(blurred)
     const isValid = validate()
     return (
       <Item

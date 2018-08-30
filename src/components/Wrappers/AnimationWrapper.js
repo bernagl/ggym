@@ -1,3 +1,7 @@
 import React from 'react'
 
-export default ({ children }) => <div id="animation-wrapper">{children}</div>
+export default ({ children, ...rest }) => (
+  <div id="animation-wrapper" {...rest}>
+    {children}
+  </div>
+)

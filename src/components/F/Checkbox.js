@@ -1,6 +1,6 @@
 import React from 'react'
 import Parent from './Wrapper'
-import { Checkbox } from 'antd'
+import { Checkbox } from '../../antd'
 import PropTypes from 'prop-types'
 
 export const Field = props => {

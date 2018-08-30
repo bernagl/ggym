@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Formsy from 'formsy-react'
-import { Button } from 'antd'
+import { Button } from '../../antd'
 
 class Form extends Component {
   static defaultProps = {

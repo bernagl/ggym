@@ -8,7 +8,7 @@ import 'bootstrap-4-grid/css/grid.min.css'
 import registerServiceWorker from './registerServiceWorker'
 
 ReactDOM.render(
-  <BrowserRouter>
+  <BrowserRouter basename="/codesplit/">
     <App />
   </BrowserRouter>,
   document.getElementById('root')

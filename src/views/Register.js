@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Form from '../components/Form/Form'
 import Input from '../components/F/Input'
+import { RadioButton, Option } from '../components/F/Radio'
 import Notification from '../components/Notification'
 import { register } from '../actions/firebaseAuth'
 import AuthWrapper from '../components/Wrappers/AuthWrapper'
@@ -59,6 +60,10 @@ class Register extends Component {
             type="password"
             required
           />
+          <RadioButton name="genre" label="Género" required>
+            <Option value="hombre">Hombre</Option>
+            <Option value="mujer">Mujer</Option>
+          </RadioButton>
         </Form>
       </AuthWrapper>
     )

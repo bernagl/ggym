@@ -11,7 +11,7 @@ class Recover extends Component {
     Notification(response)
     return true
   }
-  
+
   render() {
     return (
       <AuthWrapper type="recover">
@@ -26,6 +26,9 @@ class Recover extends Component {
             name="email"
             placeholder="Ingresa tu correo electrónico"
             label="Correo"
+            validations="isEmail"
+            validationError="Ingresa un correo válido"
+            required
           />
         </Form>
       </AuthWrapper>

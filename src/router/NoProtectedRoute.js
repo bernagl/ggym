@@ -6,7 +6,7 @@ export default auth => ({ path, exact, component, ...rest }) => {
   return auth ? (
     <Redirect to="/" />
   ) : (
-    <AnimationWrapper>
+    <AnimationWrapper className="container">
       <Route
         path={path}
         exact

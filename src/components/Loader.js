@@ -1,5 +1,4 @@
 import React from 'react'
-import {} from 'antd'
 
 export default ({ auth, children, loading }) => {
   return (

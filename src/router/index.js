@@ -1,16 +1,17 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
+import SplitImport from './SplitImport'
 
 // ProtectedRoute
 import PR from './ProtectedRoute'
 import NRP from './NoProtectedRoute'
 
-// Views
-import Login from '../views/Login'
-import Recover from '../views/Recover'
-import Register from '../views/Register'
-import Admin from '../views/Admin'
-import E404 from '../views/404'
+
+const Admin = SplitImport('views/Admin')
+const Login = SplitImport('views/Login')
+const Recover = SplitImport('views/Recover')
+const Register = SplitImport('views/Register')
+const E404 = SplitImport('views/404')
 
 export default ({ auth }) => {
   const NoProtectedRoute = NRP(auth)
