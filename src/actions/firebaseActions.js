@@ -1,11 +1,10 @@
 import { db } from './firebase-config'
 
 export const addDocument = collection => data => {
-  console.log(collection, data)
   return db
     .ref(collection)
     .push({ status: 1, ...data })
-    .then(snap => snap)
+    .then(snap => snap.key)
     .catch(e => 404)
 }
 
@@ -38,6 +37,6 @@ export const updateDocument = collection => data => {
     .ref(collection)
     .child(data.id)
     .update({ ...data })
-    .then(snap => snap)
-    .catch(e => 404)
+    .then(snap => 202)
+    .catch(() => 404)
 }

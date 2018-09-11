@@ -4,10 +4,8 @@ import CenterWrapper from '../components/Wrappers/CenterWrapper'
 
 const Loading = () => <CenterWrapper>Cargando</CenterWrapper>
 
-export default path => {
-  console.log(typeof path)
-  return Loadable({
+export default path =>
+  Loadable({
     loader: () => import('../' + path),
     loading: Loading
   })
-}

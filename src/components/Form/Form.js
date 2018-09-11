@@ -10,6 +10,7 @@ class Form extends Component {
     loadingData: false,
     submitText: 'Guardar',
     title: false,
+    shouldUpdate: false,
     subtitle: false
   }
 
@@ -25,9 +26,11 @@ class Form extends Component {
 
   submit = async model => {
     this.setState({ loading: true })
-    const r = await this.props.submit(model)
-    console.log(r)
-    this.setState({ loading: false })
+    const { shouldUpdate } = this.props
+    if (shouldUpdate) {
+      await this.props.submit(model)
+      this.setState({ loading: false })
+    } else await this.props.submit(model)
   }
 
   render() {

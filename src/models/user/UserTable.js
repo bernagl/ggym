@@ -23,7 +23,7 @@ export default class extends Component {
             label: 'Acciones',
             Render: snap => (
               <Link to={`/user/${snap.id}`}>
-                <span onClick={() => console.log(snap)}>Editar</span>
+                <span>Editar</span>
               </Link>
             )
           }
