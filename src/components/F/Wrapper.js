@@ -14,6 +14,16 @@ class Wrapper extends React.Component {
     this.setState({ blurred: true })
   }
 
+  componentDidUpdate(prevProps) {
+    const { defaultValue, setValue } = this.props
+    if (prevProps.defaultValue === defaultValue) return
+    this.setState(
+      ({ blurred }) =>
+        defaultValue ? { value: defaultValue, blurred: !blurred } : { blurred },
+      () => defaultValue && setValue(defaultValue)
+    )
+  }
+
   componentDidMount() {
     const { defaultValue, setValue } = this.props
     this.setState(

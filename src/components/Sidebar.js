@@ -99,8 +99,8 @@ class Sidebar extends Component {
               <span>Reviews</span>
             </NavLink>
           </Menu.Item>
-          <Menu.Item key="usuario">
-            <NavLink activeClassName="active" to="/usuario">
+          <Menu.Item key="user">
+            <NavLink activeClassName="active" to="/users">
               <Icon type="user" />
               <span>Usuarios</span>
             </NavLink>

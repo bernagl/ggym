@@ -15,7 +15,7 @@ class Admin extends Component {
           </Header>
           <Content style={{ margin: '0 16px' }}>
             <div style={{ marginTop: 24, padding: 24, background: '#fff' }}>
-              Hola
+              {this.props.children}
             </div>
           </Content>
           <Footer style={{ textAlign: 'center' }}>Admin by Mobkii</Footer>

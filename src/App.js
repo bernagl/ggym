@@ -1,24 +1,29 @@
 import React, { Component } from 'react'
 import Router from './router'
 import './App.css'
+import Admin from './views/Admin'
 import { authState } from './actions/firebaseAuth'
 // import Loading from './components/Loader'
 import LoadingWrapper from './components/Wrappers/LoadingWrapper'
 
 class App extends Component {
-  state = { loading: true, auth: false }
+  state = { loading: false, auth: true }
   componentDidMount() {
-    authState(this)
+    // authState(this)
   }
 
   render() {
     const { auth, loading } = this.state
     return (
-      // <div className="container">
-        <LoadingWrapper loading={loading}>
+      <LoadingWrapper loading={loading}>
+        {auth ? (
+          <Admin>
+            <Router auth={auth} />
+          </Admin>
+        ) : (
           <Router auth={auth} />
-        </LoadingWrapper>
-      // </div>
+        )}
+      </LoadingWrapper>
     )
   }
 }

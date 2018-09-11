@@ -7,6 +7,10 @@
   height: 100vh !important;
 }
 
+.vertical-center-admin-layout {
+  height: calc(100vh - 300px) !important
+}
+
 .full-width {
   width: 100%;
 }
@@ -21,8 +25,7 @@
   border: 1px solid #e8e8e8;
 }
 
-#auth-wrapper .bordered-box:hover {
-}
+#auth-wrapper .bordered-box:hover {}
 
 /* Form */
 .ant-form-item-label label:after {

@@ -1,9 +1,11 @@
 import React from 'react'
 
-export default ({ bordered, className, children }) => (
+export default ({ adminLayout, bordered, className, children }) => (
   <div
     id="auth-wrapper"
-    className="row full-height justify-content-center align-items-center mx-2"
+    className={`row ${
+      adminLayout ? 'vertical-center-admin-layout' : 'full-height'
+    } justify-content-center align-items-center mx-2`}
   >
     {bordered ? (
       <div

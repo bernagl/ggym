@@ -7,6 +7,7 @@ class Form extends Component {
     centeredTitle: false,
     fullSubmitButton: false,
     loading: false,
+    loadingData: false,
     submitText: 'Guardar',
     title: false,
     subtitle: false
@@ -33,6 +34,7 @@ class Form extends Component {
     const {
       centeredTitle,
       fullSubmitButton,
+      loadingData,
       submitText,
       title,
       subtitle
@@ -43,7 +45,7 @@ class Form extends Component {
         onValidSubmit={this.submit}
         onValid={this.enableButton}
         onInvalid={this.disableButton}
-        className="my-3"
+        className={`${loadingData ? 'loading-indicator' : ''} my-3`}
       >
         {title && (
           <div className={`${centeredTitle ? 'center-text' : ''}`}>
