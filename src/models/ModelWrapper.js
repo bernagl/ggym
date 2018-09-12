@@ -33,12 +33,19 @@ class ModelWrapper extends Component {
         })
 
     Notification(response)
-    if (!id) this.props.history.push(`/user/${response}`)
+    if (!id) this.props.history.push(`/${model}/${response}`)
     return response
   }
 
   render() {
-    const { className, id, modelName, modelLabel, redirect } = this.props
+    const {
+      className,
+      id,
+      modelName,
+      modelLabel,
+      redirect,
+      RenderRightSide
+    } = this.props
     const { loadingData, snap } = this.state
     return (
       <div className="row">
@@ -58,12 +65,18 @@ class ModelWrapper extends Component {
             {this.props.children(snap)}
           </Form>
         </div>
-        <div className="col-12 col-md-6 col-lg-8">
-          <div>Creado: {moment(snap.created_at).format('LLL')}</div>
-          <div>
-            Última modificación: {moment(snap.modified_at).format('LLL')}
-          </div>
-        </div>
+        {RenderRightSide && id ? (
+          <RenderRightSide snap={snap} />
+        ) : (
+          id && (
+            <div className="col-12 col-md-6 col-lg-8">
+              <div>Creado: {moment(snap.created_at).format('LLL')}</div>
+              <div>
+                Última modificación: {moment(snap.modified_at).format('LLL')}
+              </div>
+            </div>
+          )
+        )}
       </div>
     )
   }

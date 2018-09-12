@@ -7,13 +7,13 @@ import { Link } from 'react-router-dom'
 
 export default class Table extends Component {
   render() {
-    const { data, columns } = this.props
+    const { columns, data, model, modelName } = this.props
     return (
       <Fragment>
         <h2 className="m-0" style={{ display: 'inline' }}>
-          Usuarios
+          {modelName}
         </h2>
-        <Link to="/user">
+        <Link to={`/${model}`}>
           <Button type="primary" className="float-right">
             Agregar
           </Button>

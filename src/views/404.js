@@ -10,7 +10,7 @@ class E404 extends Component {
         <CenterWrapper adminLayout>
           <div className="row center-text">
             <div className="col-12">
-              <h2>Error 404: Not Found</h2>
+              <h2>Error 404: Ruta no encontrada</h2>
             </div>
             <div className="col-12">
               <Link to="/">Volver</Link>
