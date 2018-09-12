@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 // import { logout } from '../actions/firebaseAuth'
-import { Layout } from '../antd'
+import Layout from 'antd/lib/layout'
 import Sidebar from '../components/Sidebar'
-const { Content, Footer, Header } = Layout
+const { Content, Footer } = Layout
 
 class Admin extends Component {
   render() {

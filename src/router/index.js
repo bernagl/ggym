@@ -6,7 +6,7 @@ import SplitImport from './SplitImport'
 import PR from './ProtectedRoute'
 import NRP from './NoProtectedRoute'
 
-const Admin = SplitImport('views/Admin')
+// const Admin = SplitImport('views/Admin')
 const Login = SplitImport('views/Login')
 const Recover = SplitImport('views/Recover')
 const Register = SplitImport('views/Register')

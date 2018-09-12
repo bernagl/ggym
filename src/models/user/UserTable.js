@@ -13,11 +13,14 @@ export default class extends Component {
 
   render() {
     const { documents } = this.state
+    const headers = ['name', 'email']
+
     return (
       <Table
         model="user"
         modelName="Usuarios"
         data={documents}
+        headers={headers}
         columns={[
           { key: 'name', label: 'Nombre' },
           { key: 'email', label: 'Email' },

@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
-import { Layout, Menu, Icon } from '../antd'
+import Layout from 'antd/lib/layout'
+import Icon from 'antd/lib/icon'
+import Menu from 'antd/lib/menu'
 import { NavLink, withRouter } from 'react-router-dom'
 import { logout } from '../actions/firebaseAuth'
 // import logo from '../assets/.png'
 
-const { SubMenu } = Menu
 const { Sider } = Layout
 
 class Sidebar extends Component {
