@@ -33,7 +33,7 @@ class ModelWrapper extends Component {
         })
 
     Notification(response)
-    if (!id) this.props.history.push(`/${model}/${response}`)
+    if (!id) this.props.history.push(`/${model}/${response.params.id}`)
     return response
   }
 

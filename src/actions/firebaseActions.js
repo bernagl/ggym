@@ -4,7 +4,7 @@ export const addDocument = collection => data => {
   return db
     .ref(collection)
     .push({ status: 1, ...data })
-    .then(snap => snap.key)
+    .then(snap => returnObject(202, 'Documento agregado', { id: snap.key }))
     .catch(e => 404)
 }
 
@@ -37,6 +37,10 @@ export const updateDocument = collection => data => {
     .ref(collection)
     .child(data.id)
     .update({ ...data })
-    .then(snap => 202)
+    .then(snap => returnObject(202, 'Documento actualizado'))
     .catch(() => 404)
+}
+
+function returnObject(status, message, params) {
+  return { status, message, params }
 }
