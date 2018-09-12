@@ -32,10 +32,10 @@ export const getDocumentsByModel = model => {
     .catch(e => e)
 }
 
-export const updateDocument = collection => data => {
+export const updateDocument = collection => ({ id, ...data }) => {
   return db
     .ref(collection)
-    .child(data.id)
+    .child(id)
     .update({ ...data })
     .then(snap => returnObject(202, 'Documento actualizado'))
     .catch(() => 404)

@@ -13,8 +13,9 @@ const Register = SplitImport('views/Register')
 const E404 = SplitImport('views/404')
 const Users = SplitImport('models/user/UserTable')
 const User = SplitImport('models/user/UserForm')
-const Provider = SplitImport('models/provider/ProviderForm')
+const Provider = SplitImport('models/provider/Provider')
 const Providers = SplitImport('models/provider/ProviderTable')
+const Service = SplitImport('models/service/ServiceForm')
 const Product = SplitImport('models/product/ProductForm')
 const Products = SplitImport('models/product/ProductTable')
 const Notifications = SplitImport('models/notification/NotificationTable')
@@ -34,6 +35,11 @@ export default ({ auth }) => {
       <ProtectedRoute
         path="/product/:id_provider/:id_product?"
         component={Product}
+        auth={auth}
+      />
+      <ProtectedRoute
+        path="/service/:provider_id/:service_id?"
+        component={Service}
         auth={auth}
       />
       <ProtectedRoute path="/categories" component={Categories} auth={auth} />

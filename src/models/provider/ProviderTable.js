@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react'
 import Table from '../../components/Table'
 import { Link } from 'react-router-dom'
 import { getDocumentsByModel } from '../../actions/firebaseActions'
-import Popover from 'antd/lib/popover'
+import Icon from 'antd/lib/icon'
 
 export default class extends Component {
   state = { documents: [] }
@@ -11,20 +11,6 @@ export default class extends Component {
     const documents = await getDocumentsByModel('provider')
     this.setState({ documents })
   }
-
-  content = (snap) => (
-    <Fragment>
-      <div>
-        <Link to={`/provider/${snap.id}`}>Editar</Link>
-      </div>
-      <div>
-        <Link to={`/products/${snap.id}`}>Productos</Link>
-      </div>
-      <div>
-        <Link to={`/reviews/${snap.id}`}>Reseñas</Link>
-      </div>
-    </Fragment>
-  )
 
   render() {
     const { documents } = this.state
@@ -40,9 +26,9 @@ export default class extends Component {
             key: 'actions',
             label: 'Acciones',
             Render: snap => (
-              <Popover content={this.content(snap)} title="Opciones">
-                Opciones
-              </Popover>
+              <Link to={`/provider/${snap.id}`}>
+                <Icon type="form" theme="outlined" />
+              </Link>
             )
           }
         ]}

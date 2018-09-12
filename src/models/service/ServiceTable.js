@@ -20,18 +20,17 @@ export default class extends Component {
       <Table
         // canExport={true}
         // header={t}
-        model={`product/${provider.id}`}
+        model={`service/${provider.id}`}
         modelName="Servicios"
         // modelName={`${provider.name}`}
         data={services}
         columns={[
           { key: 'name', label: 'Nombre' },
-          { key: 'email', label: 'Email' },
           {
             key: 'actions',
             label: 'Acciones',
             Render: snap => (
-              <Link to={`/user/${snap.id}`}>
+              <Link to={`/service/${provider.id}/${snap.id}`}>
                 <Icon type="form" theme="outlined" />
               </Link>
             )

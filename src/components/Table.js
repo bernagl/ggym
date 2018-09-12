@@ -7,6 +7,12 @@ import Button from 'antd/lib/button'
 import { Link } from 'react-router-dom'
 
 export default class Table extends Component {
+  static defaultProps = {
+    canAdd: true,
+    canExport: true,
+    header: true
+  }
+
   state = { dataCallback: [] }
 
   callback = dataCallback => {
@@ -14,26 +20,41 @@ export default class Table extends Component {
   }
 
   render() {
-    const { columns, headers, data, model, modelName } = this.props
+    const {
+      canAdd,
+      columns,
+      canExport,
+      header,
+      headers,
+      data,
+      model,
+      modelName
+    } = this.props
     return (
       <Fragment>
-        <div>
-          <h2 className="m-0" style={{ display: 'inline' }}>
-            {modelName}
-          </h2>
-          <Link to={`/${model}`}>
-            <Button type="primary" className="float-right">
-              Agregar
-            </Button>
-          </Link>
-        </div>
-        <div>
-          <ExportToCsv
-            data={this.state.dataCallback}
-            headers={headers}
-            model={model}
-          />
-        </div>
+        {header && (
+          <div>
+            <h2 className="m-0" style={{ display: 'inline' }}>
+              {modelName}
+            </h2>
+            {canAdd && (
+              <Link to={`/${model}`}>
+                <Button type="primary" className="float-right">
+                  Agregar
+                </Button>
+              </Link>
+            )}
+          </div>
+        )}
+        {canExport && (
+          <div>
+            <ExportToCsv
+              data={this.state.dataCallback}
+              headers={headers}
+              model={model}
+            />
+          </div>
+        )}
         <Divider />
         <Datatable
           data={data}

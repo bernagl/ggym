@@ -3,6 +3,7 @@ import Table from '../../components/Table'
 import { Link } from 'react-router-dom'
 import { getDocumentsByModel } from '../../actions/firebaseActions'
 import moment from 'moment'
+import Icon from 'antd/lib/icon'
 
 export default class extends Component {
   state = { documents: [] }
@@ -31,7 +32,7 @@ export default class extends Component {
             label: 'Acciones',
             Render: snap => (
               <Link to={`/category/${snap.id}`}>
-                <span>Editar</span>
+                <Icon type="form" theme="outlined" />
               </Link>
             )
           }

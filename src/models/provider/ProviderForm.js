@@ -1,9 +1,9 @@
 import React, { Component, Fragment } from 'react'
 import Input from '../../components/F/Input'
 import ModelWrapper from '../ModelWrapper'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 
-export default ({
+export const ProviderForm = ({
   match: {
     params: { id }
   }
@@ -15,7 +15,7 @@ export default ({
       modelName="proveedor"
       modelLabel="Proveedores"
       redirect="/providers"
-      RenderRightSide={RenderRightSide}
+      // RenderRightSide={RenderRightSide}
     >
       {({ name, email, password }) => {
         return (
@@ -45,20 +45,22 @@ export default ({
   )
 }
 
-class RenderRightSide extends Component {
-  render() {
-    const { id } = this.props.snap
-    return (
-      <Fragment>
-        <div className="col-12 col-md-6 col-lg-8">
-          <div>
-            <Link to={`/products/${id}`}>Ver productos</Link>
-          </div>
-          <div>
-            <Link to={`/reviews/${id}`}>Ver reseñas</Link>
-          </div>
-        </div>
-      </Fragment>
-    )
-  }
-}
+export default withRouter(ProviderForm)
+
+// class RenderRightSide extends Component {
+//   render() {
+//     const { id } = this.props.snap
+//     return (
+//       <Fragment>
+//         <div className="col-12 col-md-6 col-lg-8">
+//           <div>
+//             <Link to={`/products/${id}`}>Ver productos</Link>
+//           </div>
+//           <div>
+//             <Link to={`/reviews/${id}`}>Ver reseñas</Link>
+//           </div>
+//         </div>
+//       </Fragment>
+//     )
+//   }
+// }
