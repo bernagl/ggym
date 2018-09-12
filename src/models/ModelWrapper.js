@@ -8,6 +8,7 @@ import {
 } from '../actions/firebaseActions'
 import Notification from '../components/Notification'
 import Icon from 'antd/lib/icon'
+import moment from 'moment'
 
 class ModelWrapper extends Component {
   state = { snap: {}, loadingData: true }
@@ -21,8 +22,15 @@ class ModelWrapper extends Component {
   submit = async modelForm => {
     const { id, model } = this.props
     const response = (await id)
-      ? await updateDocument(model)({ ...modelForm, id })
-      : await addDocument(model)(modelForm)
+      ? await updateDocument(model)({
+          ...modelForm,
+          id,
+          modified_at: moment().format()
+        })
+      : await addDocument(model)({
+          ...modelForm,
+          created_at: moment().format()
+        })
 
     Notification(response)
     if (!id) this.props.history.push(`/user/${response}`)
@@ -30,24 +38,32 @@ class ModelWrapper extends Component {
   }
 
   render() {
-    const { className, id, model, modelLabel, redirect } = this.props
+    const { className, id, modelName, modelLabel, redirect } = this.props
     const { loadingData, snap } = this.state
     return (
-      <div className={className ? className : 'col-md-6 col-lg-4 col-12'}>
-        <Link to={redirect}>
-          <Icon type="left" theme="outlined" />
-          {modelLabel}
-        </Link>
-        <Form
-          submitText="Guardar"
-          submit={this.submit}
-          fullSubmitButton
-          title={`${id ? 'Actualizar' : 'Agregar'} ${model}`}
-          loadingData={loadingData}
-          shouldUpdate={id ? true : false}
-        >
-          {this.props.children(snap)}
-        </Form>
+      <div className="row">
+        <div className={className ? className : 'col-12 col-md-6 col-lg-4'}>
+          <Link to={redirect}>
+            <Icon type="left" theme="outlined" />
+            {modelLabel}
+          </Link>
+          <Form
+            submitText="Guardar"
+            submit={this.submit}
+            fullSubmitButton
+            title={`${id ? 'Actualizar' : 'Agregar'} ${modelName}`}
+            loadingData={loadingData}
+            shouldUpdate={id ? true : false}
+          >
+            {this.props.children(snap)}
+          </Form>
+        </div>
+        <div className="col-12 col-md-6 col-lg-8">
+          <div>Creado: {moment(snap.created_at).format('LLL')}</div>
+          <div>
+            Última modificación: {moment(snap.modified_at).format('LLL')}
+          </div>
+        </div>
       </div>
     )
   }

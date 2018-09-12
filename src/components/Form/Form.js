@@ -64,7 +64,7 @@ class Form extends Component {
           htmlType="submit"
           loading={loading}
           type="primary"
-          className={`${fullSubmitButton ? 'full-width' : ''}`}
+          className={`${fullSubmitButton ? 'full-width' : ''} mt-3`}
         >
           {submitText}
         </Button>

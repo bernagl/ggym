@@ -7,7 +7,7 @@ export default class extends Component {
   state = { documents: [] }
 
   async componentDidMount() {
-    const documents = await getDocumentsByModel('usuario')
+    const documents = await getDocumentsByModel('user')
     this.setState({ documents })
   }
 
@@ -17,7 +17,8 @@ export default class extends Component {
       <Table
         data={documents}
         columns={[
-          { key: 'nombre', label: 'Nombre' },
+          { key: 'name', label: 'Nombre' },
+          { key: 'email', label: 'Email' },
           {
             key: 'actions',
             label: 'Acciones',
