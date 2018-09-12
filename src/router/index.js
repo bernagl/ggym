@@ -15,6 +15,8 @@ const Users = SplitImport('models/user/UserTable')
 const User = SplitImport('models/user/UserForm')
 const Provider = SplitImport('models/provider/ProviderForm')
 const Providers = SplitImport('models/provider/ProviderTable')
+const Product = SplitImport('models/product/ProductForm')
+const Products = SplitImport('models/product/ProductTable')
 
 export default ({ auth }) => {
   const NoProtectedRoute = NRP(auth)
@@ -25,10 +27,16 @@ export default ({ auth }) => {
       <NoProtectedRoute path="/recover" component={Recover} />
       <NoProtectedRoute path="/register" component={Register} />
       {/* <ProtectedRoute path="/" component={Admin} exact auth={auth} /> */}
-      <ProtectedRoute path="/users" component={Users} auth={auth} />
-      <ProtectedRoute path="/user/:id?" component={User} auth={auth} />
+      <ProtectedRoute
+        path="/product/:id_provider/:id_product?"
+        component={Product}
+        auth={auth}
+      />
+      <ProtectedRoute path="/products/:id" component={Products} auth={auth} />
       <ProtectedRoute path="/providers" component={Providers} auth={auth} />
       <ProtectedRoute path="/provider/:id?" component={Provider} auth={auth} />
+      <ProtectedRoute path="/users" component={Users} auth={auth} />
+      <ProtectedRoute path="/user/:id?" component={User} auth={auth} />
       <Route component={E404} />
     </Switch>
   )
