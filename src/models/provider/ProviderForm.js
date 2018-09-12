@@ -21,7 +21,7 @@ export const ProviderForm = ({
       redirect="/providers"
       RenderRightSide={() => RenderRightSide(provider)}
     >
-      {({ name, email, password }) => {
+      {({ name, email, facebook, instagram, phone, webpage }) => {
         return (
           <Fragment>
             <Input
@@ -42,6 +42,42 @@ export const ProviderForm = ({
               required
               defaultValue={email}
             />
+            <Input
+              name="phone"
+              placeholder="Celular"
+              label="Celular"
+              validations={{ isNumeric: true, minLength: 10, maxLength: 10 }}
+              validationError="Ingresa un número de celular válido"
+              required
+              defaultValue={phone}
+            />
+            <Input
+              name="webpage"
+              placeholder="Url de la página"
+              label="Página web"
+              validations="isUrl"
+              validationError="Ingresa una url válida"
+              required
+              defaultValue={webpage}
+            />
+            <Input
+              name="facebook"
+              placeholder="Usuario de Facebook"
+              label="Facebook"
+              validations="minLength:1"
+              validationError="Ingresa un usuario válido"
+              required
+              defaultValue={facebook}
+            />
+            <Input
+              name="instagram"
+              placeholder="Usuario de Instagram"
+              label="Instagram"
+              validations="minLength:1"
+              validationError="Ingresa un usuario válido"
+              required
+              defaultValue={instagram}
+            />
           </Fragment>
         )
       }}
@@ -53,16 +89,28 @@ export default withRouter(ProviderForm)
 
 class RightSideClass extends Component {
   render() {
-    const { email, phone } = this.props
+    const { email, facebook, instagram, phone, webpage } = this.props
     return (
       <Fragment>
         <div className="col-12 col-md-6 col-lg-8">
-          <a href={`mailto:${email}`}>
+          <a target="_blank" href={`mailto:${email}`}>
             <Icon type="mail" theme="outlined" /> Enviar correo
           </a>
           <br />
-          <a href={`tel:+${phone}`}>
+          <a target="_blank" href={`tel:+${phone}`}>
             <Icon type="phone" theme="outlined" /> Llamar
+          </a>
+          <br />
+          <a target="_blank" href={`${webpage}`}>
+            <Icon type="global" theme="outlined" /> Página web
+          </a>
+          <br />
+          <a target="_blank" href={`https://facebook.com/${facebook}`}>
+            <Icon type="facebook" theme="outlined" /> Facebook
+          </a>
+          <br />
+          <a target="_blank" href={`https://instagram.com/${instagram}`}>
+            <Icon type="instagram" theme="outlined" /> Instagram
           </a>
         </div>
       </Fragment>
