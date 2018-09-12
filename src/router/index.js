@@ -17,6 +17,8 @@ const Provider = SplitImport('models/provider/ProviderForm')
 const Providers = SplitImport('models/provider/ProviderTable')
 const Product = SplitImport('models/product/ProductForm')
 const Products = SplitImport('models/product/ProductTable')
+const Notifications = SplitImport('models/notification/NotificationTable')
+const Notification = SplitImport('models/notification/NotificationForm')
 
 export default ({ auth }) => {
   const NoProtectedRoute = NRP(auth)
@@ -30,6 +32,16 @@ export default ({ auth }) => {
       <ProtectedRoute
         path="/product/:id_provider/:id_product?"
         component={Product}
+        auth={auth}
+      />
+      <ProtectedRoute
+        path="/notifications"
+        component={Notifications}
+        auth={auth}
+      />
+      <ProtectedRoute
+        path="/notification/:id?"
+        component={Notification}
         auth={auth}
       />
       <ProtectedRoute path="/products/:id" component={Products} auth={auth} />
