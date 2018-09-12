@@ -11,6 +11,7 @@ import Icon from 'antd/lib/icon'
 
 class ModelWrapper extends Component {
   state = { snap: {}, loadingData: true }
+
   async componentDidMount() {
     const { id, model } = this.props
     const snap = id ? await getDocument(model)(id) : {}
@@ -25,7 +26,7 @@ class ModelWrapper extends Component {
 
     Notification(response)
     if (!id) this.props.history.push(`/user/${response}`)
-    return true
+    return response
   }
 
   render() {

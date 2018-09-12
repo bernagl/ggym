@@ -10,11 +10,18 @@ class Admin extends Component {
       <Layout style={{ minHeight: '100vh' }}>
         <Sidebar />
         <Layout>
-          <Header style={{ background: '#fff', padding: 0 }}>
+          {/* <Header style={{ background: '#fff', padding: 0 }}>
             <h1 className="admin-title">Admin</h1>
-          </Header>
+          </Header> */}
           <Content style={{ margin: '0 16px' }}>
-            <div style={{ marginTop: 24, padding: 24, background: '#fff' }}>
+            <div
+              style={{
+                marginTop: 16,
+                padding: 24,
+                background: '#fff',
+                boxShadow: '0px 0px 15px 6px rgb(232, 232, 232)'
+              }}
+            >
               {this.props.children}
             </div>
           </Content>

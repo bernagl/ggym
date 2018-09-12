@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Formsy from 'formsy-react'
-import { Button } from '../../antd'
+import Button from 'antd/lib/button'
+import Divider from 'antd/lib/divider'
 
 class Form extends Component {
   static defaultProps = {
@@ -52,7 +53,9 @@ class Form extends Component {
       >
         {title && (
           <div className={`${centeredTitle ? 'center-text' : ''}`}>
-            <h2>{title}</h2> {subtitle && <p>{subtitle}</p>}
+            <h2 className="m-0">{title}</h2>
+            <Divider />
+            {subtitle && <p>{subtitle}</p>}
           </div>
         )}
         {this.props.children}

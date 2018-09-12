@@ -7,7 +7,7 @@ class E404 extends Component {
   render() {
     return (
       <AnimationWrapper>
-        <CenterWrapper adminLayout bordered>
+        <CenterWrapper adminLayout>
           <div className="row center-text">
             <div className="col-12">
               <h2>Error 404: Not Found</h2>

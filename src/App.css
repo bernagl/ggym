@@ -15,6 +15,10 @@
   width: 100%;
 }
 
+.float-right {
+  float: right;
+}
+
 /* Loader */
 .loading-indicator {
   filter: blur(1px)
@@ -74,4 +78,17 @@
   to {
     opacity: 1;
   }
+}
+
+/* Datatable */
+#btable {
+  border: 1px solid #e8e8e8;
+}
+
+#btable td {
+  padding: 10px;
+}
+
+#btable tr:nth-child(even) {
+  background-color: #fbfbfb !important;
 }
