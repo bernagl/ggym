@@ -40,7 +40,7 @@ export default class Provider extends Component {
     return (
       <Tabs defaultActiveKey="2" onChange={e => console.log(e)}>
         <TabPane tab="Información general" key="1">
-          <ProviderForm />
+          <ProviderForm provider={provider} />
         </TabPane>
         <TabPane tab="Servicios" key="2">
           <Service services={services} provider={provider} />

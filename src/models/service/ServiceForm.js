@@ -57,7 +57,7 @@ export default class ProductForm extends Component {
     } = this.state
 
     return (
-      <Fragment>
+      <div className="col-12 col-md-6 col-lg-4">
         <Link to={`/provider/${id}`}>
           <Icon type="left" theme="outlined" /> Regresar
         </Link>
@@ -78,7 +78,7 @@ export default class ProductForm extends Component {
             defaultValue={name}
           />
         </Form>
-      </Fragment>
+      </div>
     )
   }
 }

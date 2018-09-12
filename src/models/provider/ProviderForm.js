@@ -2,11 +2,15 @@ import React, { Component, Fragment } from 'react'
 import Input from '../../components/F/Input'
 import ModelWrapper from '../ModelWrapper'
 import { Link, withRouter } from 'react-router-dom'
+import Icon from 'antd/lib/icon'
+
+const RenderRightSide = provider => <RightSideClass {...provider} />
 
 export const ProviderForm = ({
   match: {
     params: { id }
-  }
+  },
+  provider
 }) => {
   return (
     <ModelWrapper
@@ -15,7 +19,7 @@ export const ProviderForm = ({
       modelName="proveedor"
       modelLabel="Proveedores"
       redirect="/providers"
-      // RenderRightSide={RenderRightSide}
+      RenderRightSide={() => RenderRightSide(provider)}
     >
       {({ name, email, password }) => {
         return (
@@ -47,20 +51,21 @@ export const ProviderForm = ({
 
 export default withRouter(ProviderForm)
 
-// class RenderRightSide extends Component {
-//   render() {
-//     const { id } = this.props.snap
-//     return (
-//       <Fragment>
-//         <div className="col-12 col-md-6 col-lg-8">
-//           <div>
-//             <Link to={`/products/${id}`}>Ver productos</Link>
-//           </div>
-//           <div>
-//             <Link to={`/reviews/${id}`}>Ver reseñas</Link>
-//           </div>
-//         </div>
-//       </Fragment>
-//     )
-//   }
-// }
+class RightSideClass extends Component {
+  render() {
+    const { email, phone } = this.props
+    return (
+      <Fragment>
+        <div className="col-12 col-md-6 col-lg-8">
+          <a href={`mailto:${email}`}>
+            <Icon type="mail" theme="outlined" /> Enviar correo
+          </a>
+          <br />
+          <a href={`tel:+${phone}`}>
+            <Icon type="phone" theme="outlined" /> Llamar
+          </a>
+        </div>
+      </Fragment>
+    )
+  }
+}

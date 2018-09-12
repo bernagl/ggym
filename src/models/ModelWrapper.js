@@ -66,7 +66,8 @@ class ModelWrapper extends Component {
           </Form>
         </div>
         {RenderRightSide && id ? (
-          <RenderRightSide snap={snap} />
+          RenderRightSide()
+          // <RenderRightSide snap={snap} />
         ) : (
           id && (
             <div className="col-12 col-md-6 col-lg-8">
