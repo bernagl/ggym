@@ -31,72 +31,22 @@ class Sidebar extends Component {
               <span>Dashboard</span>
             </NavLink>
           </Menu.Item>
-          <Menu.Item key="noticia">
-            <NavLink activeClassName="active" to="/noticia">
-              <Icon type="exception" />
-              <span>Noticias</span>
+          <Menu.Item key="category">
+            <NavLink activeClassName="active" to="/categories">
+              <Icon type="tags" />
+              <span>Categorías</span>
             </NavLink>
           </Menu.Item>
-          <SubMenu
-            key="clases"
-            title={
-              <span>
-                <Icon type="schedule" />
-                <span>Happenings</span>
-              </span>
-            }
-          >
-            {/* <Menu.Item key="categoria">
-              <NavLink activeClassName="active" to="/categoria">
-                <Icon type="tags-o" />
-                <span>Categorías</span>
-              </NavLink>
-            </Menu.Item> */}
-            <Menu.Item key="evento">
-              <NavLink activeClassName="active" to="/evento">
-                <Icon type="calendar" />
-                <span>Eventos</span>
-              </NavLink>
-            </Menu.Item>
-          </SubMenu>
-          <SubMenu
-            key="votaciones"
-            title={
-              <span>
-                <Icon type="schedule" />
-                <span>Votación</span>
-              </span>
-            }
-          >
-            <Menu.Item key="equipo">
-              <NavLink activeClassName="active" to="/equipo">
-                <Icon type="usergroup-add" />
-                <span>Equipos</span>
-              </NavLink>
-            </Menu.Item>
-            <Menu.Item key="resultado">
-              <NavLink activeClassName="active" to="/resultado">
-                <Icon type="area-chart" />
-                <span>Resultados</span>
-              </NavLink>
-            </Menu.Item>
-            <Menu.Item key="ajuste">
-              <NavLink activeClassName="active" to="/ajuste">
-                <Icon type="setting" />
-                <span>Ajustes</span>
-              </NavLink>
-            </Menu.Item>
-          </SubMenu>
-          <Menu.Item key="notificacion">
-            <NavLink activeClassName="active" to="/notificacion">
+          <Menu.Item key="notification">
+            <NavLink activeClassName="active" to="/notifications">
               <Icon type="notification" />
               <span>Notificaciones</span>
             </NavLink>
           </Menu.Item>
-          <Menu.Item key="review">
-            <NavLink activeClassName="active" to="/review">
-              <Icon type="message" />
-              <span>Reviews</span>
+          <Menu.Item key="providers">
+            <NavLink activeClassName="active" to="/providers">
+              <Icon type="team" />
+              <span>Proveedores</span>
             </NavLink>
           </Menu.Item>
           <Menu.Item key="user">
