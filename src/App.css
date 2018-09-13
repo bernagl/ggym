@@ -80,6 +80,11 @@
   }
 }
 
+/* Sidebar */
+.logo img {
+  width: 100%;
+}
+
 /* Datatable */
 #btable {
   border: 1px solid #e8e8e8;

@@ -2,12 +2,13 @@ import React from 'react'
 import Parent from './Wrapper'
 import { Input } from '../../antd'
 import PropTypes from 'prop-types'
+const { TextArea } = Input
 
 export const Field = props => (
   <Parent {...props}>
     {({ onChange, onBlur, value }) => {
       return (
-        <Input
+        <TextArea
           placeholder={props.placeholder}
           name={props.name}
           value={value}
@@ -15,6 +16,7 @@ export const Field = props => (
           onChange={({ target: { value } }) => onChange(value)}
           onBlur={({ target: { value } }) => onBlur(value)}
           type={props.type}
+          rows={props.rows}
         />
       )
     }}

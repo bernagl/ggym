@@ -20,6 +20,7 @@ class ModelWrapper extends Component {
   }
 
   submit = async modelForm => {
+    console.log(modelForm)
     const { id, model } = this.props
     const response = (await id)
       ? await updateDocument(model)({
@@ -65,19 +66,17 @@ class ModelWrapper extends Component {
             {this.props.children(snap)}
           </Form>
         </div>
-        {RenderRightSide && id ? (
-          RenderRightSide()
-          // <RenderRightSide snap={snap} />
-        ) : (
-          id && (
-            <div className="col-12 col-md-6 col-lg-8">
-              <div>Creado: {moment(snap.created_at).format('LLL')}</div>
-              <div>
-                Última modificación: {moment(snap.modified_at).format('LLL')}
+        {RenderRightSide && id
+          ? RenderRightSide()
+          : // <RenderRightSide snap={snap} />
+            id && (
+              <div className="col-12 col-md-6 col-lg-8">
+                <div>Creado: {moment(snap.created_at).format('LLL')}</div>
+                <div>
+                  Última modificación: {moment(snap.modified_at).format('LLL')}
+                </div>
               </div>
-            </div>
-          )
-        )}
+            )}
       </div>
     )
   }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Table from '../../components/Table'
+import Rate from 'antd/lib/rate'
 import { Link } from 'react-router-dom'
 
 export default class extends Component {
@@ -13,8 +14,12 @@ export default class extends Component {
         modelName="Reseñas"
         data={reviews}
         columns={[
-          { key: 'name', label: 'Nombre' },
-          { key: 'email', label: 'Email' }
+          { key: 'review', label: 'Reseña' },
+          {
+            key: 'rate',
+            label: 'Calificación',
+            Render: ({ rate }) => <Rate disabled defaultValue={rate} />
+          }
         ]}
       />
     )

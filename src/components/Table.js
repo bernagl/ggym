@@ -5,6 +5,7 @@ import 'react-xtable/dist/styles.css'
 import Divider from 'antd/lib/divider'
 import Button from 'antd/lib/button'
 import { Link } from 'react-router-dom'
+import T from './T'
 
 export default class Table extends Component {
   static defaultProps = {
@@ -56,7 +57,7 @@ export default class Table extends Component {
           </div>
         )}
         <Divider />
-        <Datatable
+        <T
           data={data}
           callback={this.callback}
           columns={columns}

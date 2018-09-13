@@ -8,6 +8,7 @@ import Form from '../../components/Form/Form'
 import Notification from '../../components/Notification'
 import moment from 'moment'
 import Input from '../../components/F/Input'
+import { Option, Select } from '../../components/F/Select'
 import { Link } from 'react-router-dom'
 import Icon from 'antd/lib/icon'
 
@@ -53,7 +54,7 @@ export default class ProductForm extends Component {
     const {
       loadingData,
       provider: { id },
-      service: { name }
+      service: { name, status }
     } = this.state
 
     return (
@@ -67,6 +68,7 @@ export default class ProductForm extends Component {
           fullSubmitButton
           loadingData={loadingData}
           title={`${service_id ? 'Actualizar servicio' : 'Agregar servicio'}`}
+          shouldUpdate
         >
           <Input
             name="name"
@@ -77,6 +79,15 @@ export default class ProductForm extends Component {
             required
             defaultValue={name}
           />
+          <Select
+            name="status"
+            label="Status"
+            defaultValue={status ? status : 2}
+            value={status}
+          >
+            <Option value={1}>Activo</Option>
+            <Option value={2}>Inactivo</Option>
+          </Select>
         </Form>
       </div>
     )

@@ -1,8 +1,15 @@
 import React, { Component, Fragment } from 'react'
 import Input from '../../components/F/Input'
+import TextArea from '../../components/F/Textarea'
+import Uploader from '../../components/F/Uploader'
 import ModelWrapper from '../ModelWrapper'
 import { Link, withRouter } from 'react-router-dom'
 import Icon from 'antd/lib/icon'
+import Tooltip from 'antd/lib/tooltip'
+import Divider from 'antd/lib/divider'
+// import I from 'antd/lib/input'
+
+// const { TextArea } = I
 
 const RenderRightSide = provider => <RightSideClass {...provider} />
 
@@ -21,9 +28,21 @@ export const ProviderForm = ({
       redirect="/providers"
       RenderRightSide={() => RenderRightSide(provider)}
     >
-      {({ name, email, facebook, instagram, phone, webpage }) => {
+      {({
+        picture,
+        name,
+        email,
+        facebook,
+        instagram,
+        phone,
+        webpage,
+        description,
+        tags
+      }) => {
         return (
           <Fragment>
+            <Uploader model="provider" url={picture} />
+            <Divider />
             <Input
               name="name"
               placeholder="Nombre completo"
@@ -54,7 +73,11 @@ export const ProviderForm = ({
             <Input
               name="webpage"
               placeholder="Url de la página"
-              label="Página web"
+              label={
+                <Tooltip title="https://ejemplo.com" placement="right">
+                  Página web (?)
+                </Tooltip>
+              }
               validations="isUrl"
               validationError="Ingresa una url válida"
               required
@@ -63,7 +86,11 @@ export const ProviderForm = ({
             <Input
               name="facebook"
               placeholder="Usuario de Facebook"
-              label="Facebook"
+              label={
+                <Tooltip title="Nombre de la cuenta" placement="right">
+                  Facebook (?)
+                </Tooltip>
+              }
               validations="minLength:1"
               validationError="Ingresa un usuario válido"
               required
@@ -72,11 +99,31 @@ export const ProviderForm = ({
             <Input
               name="instagram"
               placeholder="Usuario de Instagram"
-              label="Instagram"
+              label={
+                <Tooltip title="Nombre de la cuenta" placement="right">
+                  Instagram (?)
+                </Tooltip>
+              }
               validations="minLength:1"
               validationError="Ingresa un usuario válido"
               required
               defaultValue={instagram}
+            />
+            <TextArea
+              placeholder="Descripción"
+              label="Descripción"
+              name="description"
+              autosize
+              defaultValue={description}
+              rows={4}
+            />
+            <TextArea
+              placeholder="Tags"
+              label="Tags"
+              name="tags"
+              autosize
+              defaultValue={tags}
+              rows={4}
             />
           </Fragment>
         )

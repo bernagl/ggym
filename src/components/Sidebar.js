@@ -4,7 +4,7 @@ import Icon from 'antd/lib/icon'
 import Menu from 'antd/lib/menu'
 import { NavLink, withRouter } from 'react-router-dom'
 import { logout } from '../actions/firebaseAuth'
-// import logo from '../assets/.png'
+import logo from '../assets/images/SKIPUM.png'
 
 const { Sider } = Layout
 
@@ -22,9 +22,9 @@ class Sidebar extends Component {
           }))
         }
       >
-        {/* <div className="logo p-4">
+        <div className="logo p-4">
           <img alt="" src={logo} />
-        </div> */}
+        </div>
         <Menu theme="dark" defaultSelectedKeys={[path]} mode="inline">
           <Menu.Item key="dashboard">
             <NavLink activeClassName="active" to="/dashboard">

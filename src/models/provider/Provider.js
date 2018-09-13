@@ -36,16 +36,16 @@ export default class Provider extends Component {
 
   render() {
     const { reviews, services, provider } = this.state
-    console.log(this.state)
+    const { id } = this.props.match.params
     return (
-      <Tabs defaultActiveKey="2" onChange={e => console.log(e)}>
+      <Tabs defaultActiveKey={id ? '2' : '1'} onChange={e => console.log(e)}>
         <TabPane tab="Información general" key="1">
           <ProviderForm provider={provider} />
         </TabPane>
-        <TabPane tab="Servicios" key="2">
+        <TabPane tab="Servicios" disabled={id ? false : true} key="2">
           <Service services={services} provider={provider} />
         </TabPane>
-        <TabPane tab="Reseñas" key="3">
+        <TabPane tab="Reseñas" disabled={id ? false : true} key="3">
           <Review reviews={reviews} provider={provider} />
         </TabPane>
       </Tabs>

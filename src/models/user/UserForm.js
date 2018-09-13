@@ -15,7 +15,7 @@ export default ({
       modelLabel="Usuarios"
       redirect="/users"
     >
-      {({ name, email, password }) => {
+      {({ name, email, phone }) => {
         return (
           <Fragment>
             <Input
@@ -35,6 +35,15 @@ export default ({
               validationError="Ingresa un email válido"
               required
               defaultValue={email}
+            />
+            <Input
+              name="phone"
+              placeholder="Celular"
+              label="Celular"
+              validations={{ isNumeric: true, minLength: 10, maxLength: 10 }}
+              validationError="Ingresa un número de celular válido"
+              required
+              defaultValue={phone}
             />
           </Fragment>
         )
