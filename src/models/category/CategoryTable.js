@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import Table from '../../components/Table'
 import { Link } from 'react-router-dom'
 import { getDocumentsByModel } from '../../actions/firebaseActions'
-import moment from 'moment'
 import Icon from 'antd/lib/icon'
 
 export default class extends Component {
@@ -22,11 +21,6 @@ export default class extends Component {
         data={documents}
         columns={[
           { key: 'name', label: 'Nombre' },
-          {
-            key: 'created_at',
-            label: 'Fecha',
-            Render: snap => <span>{moment(snap.created_at).format('LL')}</span>
-          },
           {
             key: 'actions',
             label: 'Acciones',

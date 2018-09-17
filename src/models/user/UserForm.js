@@ -1,6 +1,9 @@
 import React, { Fragment } from 'react'
 import Input from '../../components/F/Input'
 import ModelWrapper from '../ModelWrapper'
+import Icon from 'antd/lib/icon'
+
+const RenderRightSide = snap => <RightSideClass {...snap} />
 
 export default ({
   match: {
@@ -14,6 +17,7 @@ export default ({
       modelName="usuario"
       modelLabel="Usuarios"
       redirect="/users"
+      RenderRightSide={snap => RenderRightSide(snap)}
     >
       {({ name, email, phone }) => {
         return (
@@ -49,5 +53,21 @@ export default ({
         )
       }}
     </ModelWrapper>
+  )
+}
+
+const RightSideClass = ({ email, phone }) => {
+  return (
+    <Fragment>
+      <div className="col-12 col-md-6 col-lg-8">
+        <a href={`mailto:${email}`}>
+          <Icon type="mail" theme="outlined" /> Enviar correo
+        </a>
+        <br />
+        <a href={`tel:+${phone}`}>
+          <Icon type="phone" theme="outlined" /> Llamar
+        </a>
+      </div>
+    </Fragment>
   )
 }

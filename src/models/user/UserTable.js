@@ -35,7 +35,7 @@ export default class extends Component {
             Render: ({ id, email, phone }) => (
               <Fragment>
                 <Tooltip title="Editar">
-                  <Link to={`/provider/${id}`}>
+                  <Link to={`/user/${id}`}>
                     <Icon type="form" theme="outlined" style={iconStyle} />
                   </Link>
                 </Tooltip>

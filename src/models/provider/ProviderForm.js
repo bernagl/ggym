@@ -26,7 +26,7 @@ export const ProviderForm = ({
       modelName="proveedor"
       modelLabel="Proveedores"
       redirect="/providers"
-      RenderRightSide={() => RenderRightSide(provider)}
+      RenderRightSide={snap => RenderRightSide(snap)}
     >
       {({
         picture,
@@ -140,11 +140,11 @@ class RightSideClass extends Component {
     return (
       <Fragment>
         <div className="col-12 col-md-6 col-lg-8">
-          <a target="_blank" href={`mailto:${email}`}>
+          <a href={`mailto:${email}`}>
             <Icon type="mail" theme="outlined" /> Enviar correo
           </a>
           <br />
-          <a target="_blank" href={`tel:+${phone}`}>
+          <a href={`tel:+${phone}`}>
             <Icon type="phone" theme="outlined" /> Llamar
           </a>
           <br />

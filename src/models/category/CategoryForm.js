@@ -19,22 +19,14 @@ export default ({
         return (
           <Fragment>
             <Input
+              defaultValue={name}
               name="name"
               placeholder="Nombre"
               label="Nombre"
               validations="minLength:3"
               validationError="Ingresa un nombre válido"
               required
-              defaultValue={name}
             />
-            {/* <Input
-              name="body"
-              placeholder="Cuerpo de la notificación"
-              label="Cuerpo"
-              //   validations="minLength:3"
-              validationError="Ingresa un cuerpo válido"
-              defaultValue={name}
-            /> */}
           </Fragment>
         )
       }}

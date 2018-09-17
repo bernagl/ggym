@@ -202,7 +202,7 @@ export default class Datatable extends Component {
                 max={pages}
                 onChange={({ target: { value } }) => this.handlePaginate(value)}
               />
-              <span className="pagination-total">of {pages}</span>
+              <span className="pagination-total">de {pages}</span>
               <button
                 onClick={() => this.handlePaginate(currentPage + 1)}
                 disabled={currentPage >= pages ? true : false}
@@ -219,7 +219,7 @@ export default class Datatable extends Component {
 
 Datatable.defaultProps = {
   EmptyText: () => <span>No data found</span>,
-  Loading: () => <span>Loading</span>,
+  Loading: () => <span>Cargando</span>,
   pagination: 50,
   header: true,
   search: true,
